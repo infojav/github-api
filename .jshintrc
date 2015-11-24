@@ -1,0 +1,11 @@
+{
+  "browser": true,
+  "devel": false,
+  "camelcase": true,
+  "expr": true,
+  "globals": {
+    "require": true,
+    "define": true,
+    "mocha": true
+  }
+}

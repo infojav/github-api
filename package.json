@@ -1,0 +1,28 @@
+{
+  "name": "concrete-test",
+  "version": "1.0.0",
+  "description": "Concrete Test",
+  "main": "index.html",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "concrete",
+    "test"
+  ],
+  "author": "Javier Perea",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4",
+    "normalize": "^0.3.1",
+    "sinon": "^1.17.2",
+    "sinon-chai": "^2.8.0"
+  },
+  "dependencies": {
+    "backbone": "^1.2.3",
+    "jquery": "^1.11.3",
+    "requirejs": "^2.1.21",
+    "requirejs-text": "^2.0.12",
+    "underscore": "^1.8.3"
+  }
+}
