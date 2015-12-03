@@ -2,9 +2,9 @@ define([
   'chai',
   'sinon',
   'sinonChai',
-  'common',
+  'config',
   'repos'
-], function(chai, sinon, sinonChai, common, Repos) {
+], function(chai, sinon, sinonChai, config, Repos) {
   'use strict';
 
   var expect = chai.expect;

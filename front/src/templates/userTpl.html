@@ -1,1 +1,8 @@
-<%= name %>
+<img class="user-avatar" src="<%- avatar_url %>" alt="<%- name %>">
+<ul class="user-data">
+  <li>Login: <strong><%- login %></strong></li>
+  <% if (name) { %> <li> Name: <%- name %> </li> <% } %>
+  <li class="stars hidden">Total stars: </li>
+</ul>
+<a href="#" class="destroy hidden"></a>
+

@@ -17,27 +17,39 @@ require.config({
 		backbone: '../../node_modules/backbone/backbone',
 		text: '../../node_modules/requirejs-text/text',
 
+    // users
 		user: 'models/user',
     userTpl: 'templates/userTpl',
     userView: 'views/userView',
-
-    appView: 'views/appView',
-    common: 'common',
     users: 'collections/users',
+    // repositories
+    repo: 'models/repo',
+    repoTpl: 'templates/repoTpl',
+    repoView: 'views/repoView',
     repos: 'collections/repos',
-    repo: 'models/repo'
+    reposView: 'views/reposView',
+    // messages
+    messageView: 'views/messageView',
+    messageTpl: 'templates/messageTpl',
+
+    // Application
+    config: 'common/config',
+    appRouter: 'routers/appRouter',
+    appView: 'views/appView'
+
 	},
 });
 
 require([
-	//'backbone'
-	'appView'
-	//'routers/router'
-], function (AppView) {
+  'underscore',
+	'backbone',
+  'config',
+	'appView',
+	'appRouter'
+], function (_, Backbone, config, AppView, appRouter) {
 	'use strict';
 
-  console.log('Application running.');
-
-	// Initialize the application view
+	// Initialize the application.
 	new AppView();
+  Backbone.history.start();
 });

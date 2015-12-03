@@ -4,20 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Github API test</title>
-  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
   <body>
+    <nav>
+      <ul class="nav">
+        <li id='ranking'><a href="#ranking">Stars ranking</a></li>
+        <li id='user-data'><a href="#">User data</a></li>
+      </ul>
+    </nav>
     <section class="app">
       <header class="header">
-        <input class="new-user" placeholder="Insert new github username" autofocus>
+        <input class="new-user" placeholder="Insert username" autofocus>
       </header>
       <section class="main">
-        <ul id="user-list"></ul>
+        <ul class="user-list"></ul>
       </section>
-      <footer class="info">
+      <footer>
         <p>Written by Javier Perea</a></p>
       </footer>
     </section>
-    <script data-main="src/app.js" src="../node_modules/requirejs/require.js"></script>
+    <script data-main="src/app" src="../node_modules/requirejs/require.js"></script>
   </body>
 </html>

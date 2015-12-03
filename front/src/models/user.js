@@ -1,34 +1,61 @@
 define([
+  'underscore',
   'backbone',
-  'common',
+  'config',
   'repos'
-], function(Backbone, common, Repos) {
+], function(_, Backbone, config, Repos) {
   'use strict';
 
-  var ReposCollection = Repos;
   var User = Backbone.Model.extend({
 
     initialize: function() {
-      this.reposCollection = ReposCollection;
-      this.on('set_repos', function() {
-        var ownReposUrl = this.get('repos_url') + '?type=owner';
-        this.repos = new Repos();
-        this.repos.fetchRepos(ownReposUrl);
-      });
+      this.set('totalStars', 0);
+
+      this.set('repos', new Repos());
+      this.on('change', this.onChange);
+      this.on('destroy', this.unsetRepos);
     },
 
-    fetchUser: function(user) {
-      this.url = common.API_SERVER + '/users/' + user;
+    url: function() {
+      return config.API_SERVER + '/users/' + this.get('login');
+    },
 
-      this.fetch({
-        success: function(model) {
-          model.trigger('set_repos');
-        },
-        error: function(model, response) {
-          return response;
-        }
-      });
+    onChange: function() {
+      if (!this.hasChanged('repos') && !this.hasChanged('totalStars')) {
+        var _this = this;
+        var ownedReposUrl = this.get('repos_url') + '?type=owner';
+        var repos = this.get('repos');
+
+        repos.fetchAllRepos(ownedReposUrl)
+          .done(function() {
+            // count all stars.
+            var stars = repos.reduce(function(memo, model) {
+              return memo + parseInt(model.get('stars'));
+            }, 0);
+            _this.set('totalStars', stars);
+            _this.trigger('repos-update');
+          }).fail(function(xhr, textStatus, error) {
+            _this.trigger('fetching-error', xhr, textStatus, error);
+          });
+      }
+    },
+
+    unsetRepos: function() {
+      this.get('repos').removeAllModels();
+      this.set('totalStars', 0);
+      this.unset('repos');
+    },
+
+    sync: function(method, model, options) {
+      var _sync = Backbone.sync;
+
+      if (method === 'read') {
+        var _options = _.extend(options || {}, config.REQUEST_OPTIONS.user);
+        return _sync.apply(this, ['read', model, _options]);
+      }
     }
+
+
   });
 
   return User;

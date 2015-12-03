@@ -23,13 +23,26 @@ require.config({
     sinon: '../../node_modules/sinon/lib/sinon',
 		sinonChai: '../../node_modules/sinon-chai/lib/sinon-chai',
 
-    common: '../src/common',
-		user: '../src/models/user',
+    // config
+    config: 'spec/common/config',
+    // users
+    user: '../src/models/user',
     userTpl: '../src/templates/userTpl',
     userView: '../src/views/userView',
     users: '../src/collections/users',
+    // repositories
     repo: '../src/models/repo',
-    repos: '../src/collections/repos'
+    repoTpl: '../src/templates/repoTpl',
+    repoView: '../src/views/repoView',
+    repos: '../src/collections/repos',
+    reposView: '../src/views/reposView',
+    // messages
+    messageView: '../src/views/messageView',
+    messageTpl: '../src/templates/messageTpl',
+
+    // Application
+    appRouter: '../src/routers/appRouter',
+    appView: '../src/views/appView'
 	},
 	urlArgs: 'bust=' + (new Date()).getTime()
 });
@@ -42,16 +55,27 @@ define(function(require) {
 	mocha.setup({
     'ui': 'bdd',
     'reporter': 'html',
-    'timeout': 2000,
+    'timeout': 600,
     'slow': 500
   });
 
 	require([
+    // users
     'spec/models/user',
     'spec/views/userView',
-    'spec/collections/users',
+    //'spec/collections/users',
+
+    // repositories
     'spec/models/repo',
-    'spec/collections/repos'
+    //'spec/collections/repos',
+    //'spec/views/repoView',
+    //'spec/views/reposView',
+
+    // messages
+    //'spec/views/messageView',
+
+    // router
+    // 'spec/router/appRouter'
 	], function(require) {
 		mocha.run();
 	});
