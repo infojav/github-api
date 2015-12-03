@@ -1,0 +1,17 @@
+// _footer.scss
+
+footer {
+  margin: 65px auto 0;
+  color: $body-color;
+  font-size: .5rem;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  text-align: center;
+}
+footer p {
+  line-height: 1;
+}
+
+footer p:hover {
+  color: darken($body-color, 25%);
+  text-decoration: underline;
+}

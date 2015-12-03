@@ -1,0 +1,15 @@
+/* input */
+
+input.new-user {
+  position: relative;
+  margin: $input-margin;
+  width: $input-width;
+  font-size: $input-font-size;
+  line-height: $line-height;
+  outline: none;
+  padding: $input-padding;
+  border: $input-border;
+  box-shadow: $input-box-shadow;
+  box-sizing: border-box;
+  @include font-smoothing($input-smooting);
+}

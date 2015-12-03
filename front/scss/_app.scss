@@ -1,0 +1,33 @@
+body {
+  font: font-size-base $font-family-sans-serif;
+  line-height: $line-height;
+
+  background: $body-bg;
+  color: $body-color;
+  min-width: 330px;
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+.hidden {
+  display: none;
+}
+
+ul, ol, dl {
+  list-style: none;
+}
+
+
+.app {
+  background: #fff;
+  margin: 60px 0 40px 0;
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+              0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.main {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid #e6e6e6;
+}

@@ -1,0 +1,45 @@
+/* user.scss */
+
+.user-list, .repos, .repo-data {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.user {
+  color: $user-color;
+  background-color: $user-color-bg;
+  padding: $user-padding;
+  position: relative;
+  overflow: auto;
+  height: auto;
+  font-size: $user-font;
+  border-style: $user-border-style;
+  border-color: $user-border-color;
+  margin: $user-margin;
+}
+
+.user-avatar {
+  background-color: $user-avatar-bg-color;
+  float: $user-avatar-float;
+  margin: $user-avatar-margin;
+  border: $user-avatar-border;
+  height: $user-avatar-height;
+  width: $user-avatar-width;
+}
+
+.user.max-stars {
+  border-color: $user-selected;
+}
+
+
+.repos {
+  margin-top: $user-repos-margin-top;
+  clear: $user-repos-clear;
+}
+
+.repo-data {
+  background-color: $user-repo-bg-color;
+  color: $user-repo-color;
+  margin: $user-repo-margin;
+  padding: $user-repo-padding;
+}

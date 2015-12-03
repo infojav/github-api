@@ -1,0 +1,33 @@
+/* nav */
+
+ul.nav {
+  list-style: $list-style;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+ul.nav {
+  overflow: hidden;
+  height: 1%;
+}
+
+.nav li {
+  float: $btn-float;
+}
+
+.nav a {
+  color: $btn-color;
+  background-color: $btn-color-bg;
+  padding: $btn-padding;
+  border: $btn-border;
+  text-align: $btn-text-align;
+  text-decoration: none;
+  display: block;
+  border-bottom: none;
+}
+
+.selected a {
+  color: $btn-color-selected;
+  background-color: $btn-color-bg-selected;
+  border: $btn-border-selected;
+}

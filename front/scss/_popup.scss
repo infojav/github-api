@@ -1,0 +1,43 @@
+/* popup */
+.overlay {
+  z-index: 99999;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 2em;
+  border-radius: .3em;
+  width: 50%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup.info {
+  background: lightblue;
+  color: black;
+}
+
+.popup.info .destroy {
+  color: black;
+}
+
+.popup.error {
+  background: red;
+  color: white;
+}
+
+.popup.error .destroy {
+  color: white;
+}
+
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
