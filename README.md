@@ -1,5 +1,5 @@
 # github-api
-Github API testgit@github.com:infojav/github-api.git
+Github API
 
 ##Tech used:##
  - Libraries: backbonejs, jQuery, underscore
@@ -7,3 +7,6 @@ Github API testgit@github.com:infojav/github-api.git
  - Testing: mocha, chai, sinon
  - Css: sass
  - Tasks: gulp
+
+##Url to check##
+ - [http://native-xp.com/github-api/](http://native-xp.com/github-api/)

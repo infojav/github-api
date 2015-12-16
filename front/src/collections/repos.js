@@ -58,6 +58,7 @@ define([
     removeAllModels: function() {
       var _model;
 
+      /*jshint -W084 */
       while (_model = this.pop()) {
         _model.destroy();
       }

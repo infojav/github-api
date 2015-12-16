@@ -6,24 +6,29 @@ var uglify = require('gulp-uglify');
 var rjsOptimize = require('gulp-requirejs-optimize');
 var minifyCss = require('gulp-minify-css');
 
-//var rjs = require('gulp-r');
+// default
+gulp.task('default', ['sass', 'optimize', 'minify-css']);
 
+// Sass
 gulp.task('sass', function () {
   gulp.src('./front/scss/main.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./front/css'));
 });
 
+// Sass : watch
 gulp.task('sass:watch', function () {
   gulp.watch('./front/scss/main.scss', ['sass']);
 });
 
+// Minify CSS
 gulp.task('minify-css', function() {
   return gulp.src('./front/css/main.css')
     .pipe(minifyCss({compatibility: 'ie9'}))
     .pipe(gulp.dest('dist/styles'));
 });
 
+// Optimize (requirejs)
 gulp.task('optimize', function() {
   gulp.src('front/src/*.js')
       .pipe(rjsOptimize({
@@ -60,4 +65,4 @@ gulp.task('optimize', function() {
       .pipe(gulp.dest('dist/scripts'));
 });
 
-gulp.task('default', ['sass', 'optimize', 'minify-css']);
+

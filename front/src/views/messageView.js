@@ -38,6 +38,7 @@ define([
     closeKey: function(e) {
       e.preventDefault();
 
+      // Escape
       if (e.which === 27) {
         this.closeView();
       }
